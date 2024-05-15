@@ -236,8 +236,8 @@ end
 % xlabel('vehicle speed [km/h]');
 
 
-figure(100)
-plot(t,NFL,t,NFR,t,NRL,t,NRR),
-grid,xlabel('Time [s]'),ylabel('[N]');
-title('Load on wheels')
-legend('FL','FR','RL','RR');
+% figure(100)
+% plot(t,NFL,t,NFR,t,NRL,t,NRR),
+% grid,xlabel('Time [s]'),ylabel('[N]');
+% title('Load on wheels')
+% legend('FL','FR','RL','RR');
