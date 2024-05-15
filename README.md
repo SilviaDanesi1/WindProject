@@ -18,7 +18,7 @@ Salvare le foto con le variabili date in input (per il punto 1 il vento che sceg
 Cose da fare:
 configurare Git Marta e Eugenio;
 Andre compila il readme;
-Silvia si occupa dello script per salvare le figure
+Silvia si occupa dello script per salvare le figure --> DONE
 righe di codice per salvare input, nel primo punto la wind history scelta
 fare le analisi per tutte e tre le condizioni Dry, Wet, Snow
 primo Silvia
