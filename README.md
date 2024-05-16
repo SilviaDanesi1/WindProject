@@ -1,4 +1,7 @@
 # WindProject
+
+ATTENZIONE: settare come tempo massimo della simulazione x_path(end) / velocità (m/s), comunque non oltre 100 secondi
+
 1. Rifare analisi per ciascuna wind history (lambda = 1)
 
 Lambda = carico pagante del camion
@@ -16,9 +19,9 @@ y = traiettoria del camion
 Salvare le foto con le variabili date in input (per il punto 1 il vento che scegliamo)
 
 Cose da fare:
-configurare Git Marta e Eugenio;
-Andre compila il readme;
-Silvia si occupa dello script per salvare le figure --> DONE
+DONE --> configurare Git Marta e Eugenio;
+DONE --> Andre compila il readme;
+DONE --> Silvia si occupa dello script per salvare le figure 
 righe di codice per salvare input, nel primo punto la wind history scelta
 fare le analisi per tutte e tre le condizioni Dry, Wet, Snow
 primo Silvia
@@ -27,3 +30,5 @@ terzo Silvia
 quarto Andre
 quinto Silvia
 sesto Marta
+
+AGGIUNTIVO: mandare mail a Zanelli per sapere bene cose

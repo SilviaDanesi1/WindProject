@@ -16,9 +16,9 @@ function [Fy,Mx,Mz,alfa,Uy,Vr] = forze_aerodinamiche(Xp,Yp,psi,X,Y,time)
 % Vr    relative wind speed magnitude
 global Wind_Coefficients vento Al hr den
 % Wind absolute speed as function of time and position
-a1 = floor(time / (vento.t(2)-vento.t(1))) + 1;
-a2= floor(X / (vento.x(2)-vento.x(1))) + 1;
-Uy = vento.v(a1,a2);
+a1 = floor(time / (vento.t(2)-vento.t(1))) + 1
+a2 = floor(X / (vento.x(2) - vento.x(1))) + 1
+Uy = vento.v(a1, a2);
 
 % this is made to avoid numerical instability at the beginning of the
 % simulation

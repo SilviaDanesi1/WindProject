@@ -29,7 +29,7 @@ dNP(1,1) = 0;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % vehicle data
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Truck_rollover_vehicle_data
+Truck_rollover_vehicle_data_evo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % driver gains and reference path
@@ -38,9 +38,9 @@ kp = 5;                             % [rad/m]   driver proportional gain
 kd = .05;                             % [         driver derivative gain
 ki = 0.1;
 L = 3;                              % [m]       driver prediction lenght
-x_path = [0 20 25 70 75 500];       % [m]       driver reference path x
-y_path = [0 0   1  1  0    0]*0;       % [m]       driver reference path y
-x_ref = 0:1:500;
+x_path = [0 20 25 70 75 500 1000];       % [m]       driver reference path x
+y_path = [0 0   1  1  0    0 0]*0;       % [m]       driver reference path y
+x_ref = 0:1: x_path(end);
 y_ref = interp1(x_path,y_path,x_ref);
 y_ref = smooth(y_ref,20);
 ErrInt = 0;
@@ -240,3 +240,8 @@ plot(t,NFL,t,NFR,t,NRL,t,NRR),
 grid,xlabel('Time [s]'),ylabel('[N]');
 title('Load on wheels')
 legend('FL','FR','RL','RR');
+%%
+results.settings = {road_select, nomefile, V, tfin};
+fileID = fopen('Results.txt', 'w');
+fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin]);
+fclose(fileID);
