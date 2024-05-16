@@ -143,8 +143,6 @@ FyRR = DRR.*sin(C.*atan(BR.*alphaR-E*(BR.*alphaR-atan(BR.*alphaR))));
 FyR  = (FyRL + FyRR);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Figures
-
-%%
 figure()
 subplot(231);
 plot(t,delta*180/pi); 
@@ -171,15 +169,6 @@ plot(t,rhop);
 xlabel('time [s]'); ylabel('[rad/s]'); grid on;
 title('roll rate');
 
-% Adjust settings for high quality
-set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
-
-% Save the plot as a high-quality image
-% saveas(gcf, 'sub1.png'); % Save as PNG
-% Alternatively, you can use print function
-print(gcf, 'sub1.png', '-dpng', '-r500'); % Save as PNG with 300 DPI
-%%
 
 figure()
 subplot(231);
@@ -211,22 +200,15 @@ xlabel('Time [s]'),ylabel('[deg]'); grid on;
 title('roll angle');
 % Adjust settings for high quality
 set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
-
-% Save the plot as a high-quality image
-% saveas(gcf, 'sub1.png'); % Save as PNG
+set(gca, 'LineWidth', 0.5); % Set line width
 % Alternatively, you can use print function
-print(gcf, 'sub2.png', '-dpng', '-r500'); % Save as PNG with 300 DPI
+print(gcf, 'sub2.png', '-dpng', '-r700'); % Save as PNG with 500 DPI
 
-%%
+
 figure(200)
 plot(X,Y); title('vehicle trajectory and orientation')
-% Adjust settings for high quality
-set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
 
-% Alternatively, you can use print function
-print(gcf, 'high_quality_figure1.png', '-dpng', '-r500'); % Save as PNG with 300 DPI
+
 for ii=1:t(end)
     Xg = interp1(t,X,ii);
     Yg = interp1(t,Y,ii);
@@ -241,11 +223,11 @@ end
 
 % Adjust settings for high quality
 set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
+set(gca, 'LineWidth', 0.5); % Set line width
 
-% Alternatively, you can use print function
-print(gcf, 'high_quality_figure.png', '-dpng', '-r500'); % Save as PNG with 300 DPI
-return
+% Save the plot as a high-quality image
+print(gcf, 'image.png', '-dpng', '-r500'); % Save as PNG with 500 DPI
+
 
 % break
 
@@ -274,15 +256,14 @@ plot(t,NFL,t,NFR,t,NRL,t,NRR),
 grid,xlabel('Time [s]'),ylabel('[N]');
 title('Load on wheels')
 legend('FL','FR','RL','RR');
+
 % Adjust settings for high quality
 set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
+set(gca, 'LineWidth', 0.5); % Set line width
 
 % Save the figure as a high-quality image
-saveas(gcf, 'high_quality_figure.png'); % Save as PNG
-% Alternatively, you can use print function
-% print(gcf, 'high_quality_figure.png', '-dpng', '-r300'); % Save as PNG with 300 DPI
-%%
+print(gcf, 'Load on wheels.png', '-dpng', '-r500'); % Save as PNG with 00 DPI
+
 results.settings = {road_select, nomefile, V, tfin};
 fileID = fopen('Results.txt', 'w');
 fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin]);
