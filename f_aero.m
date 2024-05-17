@@ -16,8 +16,8 @@ function [Fy,Mx,Mz,alfa,Uy,Vr] = forze_aerodinamiche(Xp,Yp,psi,X,Y,time)
 % Vr    relative wind speed magnitude
 global Wind_Coefficients vento Al hr den
 % Wind absolute speed as function of time and position
-a1 = floor(time / (vento.t(2)-vento.t(1))) + 1
-a2 = floor(X / (vento.x(2) - vento.x(1))) + 1
+a1 = floor(time / (vento.t(2)-vento.t(1))) + 1;
+a2 = floor(X / (vento.x(2) - vento.x(1))) + 1;
 Uy = vento.v(a1, a2);
 
 % this is made to avoid numerical instability at the beginning of the
@@ -36,7 +36,7 @@ vry = -Vrx*sin(psi)+Vry*cos(psi);
 alfa  = 180 / pi * atan(-vry/vrx);
 % coefficients interpolation from table. C = [Cx Cy Mz Mx];
 
-Cx = interp1(Wind_Coefficients(1,:), Wind_Coefficients(2,:), alfa);
+% Cx = interp1(Wind_Coefficients(1,:), Wind_Coefficients(2,:), alfa);
 Cy = interp1(Wind_Coefficients(1,:),Wind_Coefficients(3,:), alfa);
 Cmz = interp1(Wind_Coefficients(1,:),Wind_Coefficients(4,:), alfa);
 Cmx = interp1(Wind_Coefficients(1,:), Wind_Coefficients(5,:), alfa);
