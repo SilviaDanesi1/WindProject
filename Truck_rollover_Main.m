@@ -247,6 +247,8 @@ saveas(figure(1), 'Figure_1', 'fig');
 saveas(figure(2), 'Figure_2', 'fig');
 saveas(figure(3), 'Figure_3', 'fig');
 saveas(figure(4), 'Figure_4', 'fig');
+% Le immagini sono salvate nella directory di lavoro, vanno poi spostate a
+% mano nella cartella Results
 % fileID = fopen('Results.txt', 'w');
 % fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin]);
 % fclose(fileID);
