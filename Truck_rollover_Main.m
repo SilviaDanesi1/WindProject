@@ -70,7 +70,7 @@ load Wind_Coefficients  %           aerodynamic coefficients
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 prompt = {'Vehicle speed [km/h]','Final time [s]','integration step time [s]'};
 titolo = 'Simulation data';
-def = {'50','10','0.05'};
+def = {'50','60','0.05'};
 dati = inputdlg(prompt,titolo,1,def);
 V = str2double(char(dati(1)));
 vx = V/3.6;
@@ -143,8 +143,6 @@ FyRR = DRR.*sin(C.*atan(BR.*alphaR-E*(BR.*alphaR-atan(BR.*alphaR))));
 FyR  = (FyRL + FyRR);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Figures
-
-%%
 figure()
 subplot(231);
 plot(t,delta*180/pi); 
@@ -170,16 +168,6 @@ subplot(236);
 plot(t,rhop); 
 xlabel('time [s]'); ylabel('[rad/s]'); grid on;
 title('roll rate');
-
-% Adjust settings for high quality
-set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
-
-% Save the plot as a high-quality image
-% saveas(gcf, 'sub1.png'); % Save as PNG
-% Alternatively, you can use print function
-print(gcf, 'sub1.png', '-dpng', '-r500'); % Save as PNG with 300 DPI
-%%
 
 figure()
 subplot(231);
@@ -209,43 +197,21 @@ subplot(236);
 plot(t,rho*(180/pi)),grid;
 xlabel('Time [s]'),ylabel('[deg]'); grid on;
 title('roll angle');
-% Adjust settings for high quality
-set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
 
-% Save the plot as a high-quality image
-% saveas(gcf, 'sub1.png'); % Save as PNG
-% Alternatively, you can use print function
-print(gcf, 'sub2.png', '-dpng', '-r500'); % Save as PNG with 300 DPI
-
-%%
-figure(200)
+figure(3)
 plot(X,Y); title('vehicle trajectory and orientation')
-% Adjust settings for high quality
-set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
+% for ii=1:t(end)
+%     Xg = interp1(t,X,ii);
+%     Yg = interp1(t,Y,ii);
+%     Psi = interp1(t,psi,ii);
+%     Xpg = 5*cos(Psi);
+%     Ypg = 5*sin(Psi);
+%     figure(3)
+%     quiver(Xg,Yg,Xpg,Ypg,'r'); hold on;
+% %     axis equal; 
+%     grid on;
+% end
 
-% Alternatively, you can use print function
-print(gcf, 'high_quality_figure1.png', '-dpng', '-r500'); % Save as PNG with 300 DPI
-for ii=1:t(end)
-    Xg = interp1(t,X,ii);
-    Yg = interp1(t,Y,ii);
-    Psi = interp1(t,psi,ii);
-    Xpg = 5*cos(Psi);
-    Ypg = 5*sin(Psi);
-    figure(3)
-    quiver(Xg,Yg,Xpg,Ypg,'r'); hold on;
-%     axis equal; 
-    grid on;
-end
-
-% Adjust settings for high quality
-set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
-
-% Alternatively, you can use print function
-print(gcf, 'high_quality_figure.png', '-dpng', '-r500'); % Save as PNG with 300 DPI
-return
 
 % break
 
@@ -269,21 +235,21 @@ return
 % legend('U = 25 m/s','U = 30 m/s');
 % xlabel('vehicle speed [km/h]');
 
-figure(100)
+figure(4)
 plot(t,NFL,t,NFR,t,NRL,t,NRR),
 grid,xlabel('Time [s]'),ylabel('[N]');
 title('Load on wheels')
 legend('FL','FR','RL','RR');
-% Adjust settings for high quality
-set(gca, 'FontSize', 10); % Set font size
-set(gca, 'LineWidth', 1.2); % Set line width
 
-% Save the figure as a high-quality image
-saveas(gcf, 'high_quality_figure.png'); % Save as PNG
-% Alternatively, you can use print function
-% print(gcf, 'high_quality_figure.png', '-dpng', '-r300'); % Save as PNG with 300 DPI
-%%
 results.settings = {road_select, nomefile, V, tfin};
 fileID = fopen('Results.txt', 'w');
 fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin]);
 fclose(fileID);
+save('results.mat', 'results');
+saveas(figure(1), 'Figure_1', 'fig');
+saveas(figure(2), 'Figure_2', 'fig');
+saveas(figure(3), 'Figure_3', 'fig');
+saveas(figure(4), 'Figure_4', 'fig');
+% fileID = fopen('Results.txt', 'w');
+% fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin]);
+% fclose(fileID);
