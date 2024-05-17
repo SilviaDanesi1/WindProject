@@ -22,12 +22,12 @@ Cose da fare:
 DONE --> configurare Git Marta e Eugenio;
 DONE --> Andre compila il readme;
 DONE --> Silvia si occupa dello script per salvare le figure 
-righe di codice per salvare input, nel primo punto la wind history scelta
+DONE --> righe di codice per salvare input, nel primo punto la wind history scelta
 fare le analisi per tutte e tre le condizioni Dry, Wet, Snow
 primo Silvia
 secondo Euge
 terzo Silvia
-quarto Andre
+DONE --> quarto Andre
 quinto Silvia
 sesto Marta
 
