@@ -6,7 +6,7 @@
 % The lambda factor is to be modified in the range [0,1] and is
 % representative of the payload carried by the truck as a fraction of its
 % maximum admissible payload
-lambda  = 1;            % [-]       relative payload of the vehicle
+lambda  = 0.75;            % [-]       relative payload of the vehicle
 % The tau_roll factor is to be modified in the range [0.25,0.75] and is
 % representative of the ratio of the roll stiffness of the front axle with
 % respect to the total roll stiffness of the vehicle (this parameter
@@ -34,14 +34,14 @@ zl_max  = zl_min+hl/2;  % [m]       maximum height of the lumped mass cog
 zl      = zl_min+lambda*(zl_max-zl_min);    % [m]       lumped mass cog height
 ml_max  = 8600-mb;                    % [kg]      maximum lumped mass
 ml      = ml_max*lambda;                    % [kg]      lumped mass simulating the load 
-Jxl     = ml/12*(wl^2+(lambda*hl)^2);       % [kgm2]    lumped mass moment of inertia x axis
+Jxl     = ml/12.*(wl^2+(lambda.*hl).^2);       % [kgm2]    lumped mass moment of inertia x axis
 Jzl     = ml/12*(ll^2+wl^2);                % [kgm2]    lumped mass moment of inertia z axis
 m       = mb+ml;              % [kg]      total sprung mass
 a       = (al*ml+ab*mb)/m;    % [m]       distance of sprung mass cog from front axle
 b       = p-a;                % [m]       distance of sprung mass cog from rear axle
-zG      = (zb*mb+zl*ml)/(mb+ml);    % [m]    height of sprung mass cog from ground
+zG      = (zb.*mb+zl.*ml)./(mb+ml);    % [m]    height of sprung mass cog from ground
 Jz      = Jzb+mb*(a-ab)^2+Jzl+ml*(a-al)^2;   % total moment of inerzia z
-Jx      = Jxb + mb*(zG-zb)^2 + Jxl + ml*(zG-zl)^2;   % total moment of inerzia x
+Jx      = Jxb + mb.*(zG-zb).^2 + Jxl + ml.*(zG-zl).^2;   % total moment of inerzia x
 Fza     = m*b/p*g;          % [N]       static load on front wheels
 Fzp     = m*a/p*g;          % [N]       static load on rear wheels
 zR      = Rr*1.25;           % [m]       roll centre height from ground

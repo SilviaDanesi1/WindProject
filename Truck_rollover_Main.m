@@ -241,9 +241,9 @@ grid,xlabel('Time [s]'),ylabel('[N]');
 title('Load on wheels')
 legend('FL','FR','RL','RR');
 
-results.settings = {road_select, nomefile, V, tfin};
+results.settings = {road_select, nomefile, V, tfin,m};
 fileID = fopen('Results.txt', 'w');
-fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin]);
+fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin, m ]);
 fclose(fileID);
 save('results.mat', 'results');
 saveas(figure(1), 'Figure_1', 'fig');
