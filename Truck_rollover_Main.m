@@ -19,6 +19,7 @@ global FyW MzW MxW Wind_Coefficients vento
 global indice xp_prec iii xpp
 global delta d
 global vx
+global stop
 indice = 0;
 iii = 2;
 xpp(1,:) = zeros(1,7);

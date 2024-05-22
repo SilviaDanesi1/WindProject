@@ -12,7 +12,7 @@ lambda  = 0.75;            % [-]       relative payload of the vehicle
 % respect to the total roll stiffness of the vehicle (this parameter
 % influences the distribution of load transfer among the axles but not the
 % total load transfer)
-tau_roll = 0.644;       % [-]       front-to-total axle roll stiffness
+tau_roll = 0.75;       % [-]       front-to-total axle roll stiffness 0.644
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % vehicle data: geometry, mass, stiffness and damping
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,3 +71,4 @@ s = 0;-0.01;
 N0 = 20000; %[N]
 BF = 2.7502; % da CalcoloRigidezzeDeriva.m
 BR = 2.5*BF;
+stop = 0;

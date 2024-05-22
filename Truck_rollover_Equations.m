@@ -11,6 +11,7 @@ global indice xp_prec iii xpp
 global delta
 global vx
 global BF BR C E s q N0
+global stop
 
 vy   = x(1);
 PSIp = x(2);
@@ -56,7 +57,7 @@ NFL = Fza/2 - dNa; % normal load front left
 NFR = Fza/2 + dNa; % normal load front right
 NRL = Fzp/2 - dNp; % normal load rear left
 NRR = Fzp/2 + dNp; % normal load rear right
-if ((NFL < 0 || NFR < 0) || NRL < 0) || NRR < 0 
+if ((NFL < 0 || NFR < 0) || NRL < 0) || NRR < 0 && stop == 0
     t
     x
     NFL
@@ -64,6 +65,7 @@ if ((NFL < 0 || NFR < 0) || NRL < 0) || NRR < 0
     NRL
     NRR
     warning(['!! ROLLOVER !! @ t=',num2str(t)]);
+    stop = 1;
 end
 % pacejka D coefficient
 DFL = (q+s*abs(NFL-N0)/N0)*NFL; % coefficient D front left
