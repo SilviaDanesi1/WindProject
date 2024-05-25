@@ -143,8 +143,8 @@ FyRL = DRL.*sin(C.*atan(BR.*alphaR-E*(BR.*alphaR-atan(BR.*alphaR))));
 FyRR = DRR.*sin(C.*atan(BR.*alphaR-E*(BR.*alphaR-atan(BR.*alphaR))));
 FyR  = (FyRL + FyRR);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Figures
-figure()
+%% Figures
+figure('units', 'normalized', 'outerposition', [0 0 1 1]);
 subplot(231);
 plot(t,delta*180/pi); 
 xlabel('time [s]'); ylabel('[deg]'); grid on;
@@ -169,8 +169,9 @@ subplot(236);
 plot(t,rhop); 
 xlabel('time [s]'); ylabel('[rad/s]'); grid on;
 title('roll rate');
+hold on;
 
-figure()
+figure('units', 'normalized', 'outerposition', [0 0 1 1]);
 subplot(231);
 plot(t,alfa,t,Uy,t,Vr); grid on; legend('angle','wind speed','relative speed')
 xlabel('time [s]'); ylabel('[deg], [m/s]');
@@ -197,10 +198,12 @@ title('yaw angle');
 subplot(236);
 plot(t,rho*(180/pi)),grid;
 xlabel('Time [s]'),ylabel('[deg]'); grid on;
-title('roll angle');
+title('roll angle');hold on;
 
-figure(3)
+
+figure('units', 'normalized', 'outerposition', [0 0 1 1]);
 plot(X,Y); title('vehicle trajectory and orientation')
+hold on;
 % for ii=1:t(end)
 %     Xg = interp1(t,X,ii);
 %     Yg = interp1(t,Y,ii);
@@ -236,21 +239,24 @@ plot(X,Y); title('vehicle trajectory and orientation')
 % legend('U = 25 m/s','U = 30 m/s');
 % xlabel('vehicle speed [km/h]');
 
-figure(4)
+figure('units', 'normalized', 'outerposition', [0 0 1 1]);
 plot(t,NFL,t,NFR,t,NRL,t,NRR),
 grid,xlabel('Time [s]'),ylabel('[N]');
 title('Load on wheels')
 legend('FL','FR','RL','RR');
+hold on;
 
-results.settings = {road_select, nomefile, V, tfin,m};
-fileID = fopen('Results.txt', 'w');
-fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin, m ]);
-fclose(fileID);
-save('results.mat', 'results');
-saveas(figure(1), 'Figure_1', 'fig');
-saveas(figure(2), 'Figure_2', 'fig');
-saveas(figure(3), 'Figure_3', 'fig');
-saveas(figure(4), 'Figure_4', 'fig');
+% results.settings = {road_select, nomefile, V, tfin,m};
 % fileID = fopen('Results.txt', 'w');
+% fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin, m ]);
+% fclose(fileID);
+% save('results.mat', 'results');
+% saveas(figure(1), 'Figure_1', 'fig');
+% saveas(figure(2), 'Figure_2', 'fig');
+% saveas(figure(3), 'Figure_3', 'fig');
+% saveas(figure(4), 'Figure_4', 'fig');
+% % fileID = fopen('Results.txt', 'w');
 % fprintf(fileID, '%6.2f %12.8f\n', [road_select, nomefile, V, tfin]);
 % fclose(fileID);
+
+saveFiguresAsPNG()
