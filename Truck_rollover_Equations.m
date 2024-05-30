@@ -57,13 +57,13 @@ NFL = Fza/2 - dNa; % normal load front left
 NFR = Fza/2 + dNa; % normal load front right
 NRL = Fzp/2 - dNp; % normal load rear left
 NRR = Fzp/2 + dNp; % normal load rear right
-if ((NFL < 0 || NFR < 0) || NRL < 0) || NRR < 0 && stop == 0
-    t
-    x
-    NFL
-    NFR
-    NRL
-    NRR
+if (((NFL < 0 || NFR < 0) || NRL < 0) || NRR < 0) && stop == 0
+    t;
+    x;
+    NFL;
+    NFR;
+    NRL;
+    NRR;
     warning(['!! ROLLOVER !! @ t=',num2str(t)]);
     stop = 1;
 end

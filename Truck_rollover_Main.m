@@ -65,7 +65,11 @@ vento.t = vento.v(:,1);
 vento.v = vento.v(:,2:end);
 vento.x = (0:5:5*(size(vento.v,2)-1))';
 load Wind_Coefficients  %           aerodynamic coefficients
-
+% for jj = 401:1:800
+%     for kk = 1:200
+%         vento.v(jj, kk) = 0.4;
+%     end
+% end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Simulation data
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

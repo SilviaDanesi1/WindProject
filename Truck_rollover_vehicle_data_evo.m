@@ -6,7 +6,7 @@
 % The lambda factor is to be modified in the range [0,1] and is
 % representative of the payload carried by the truck as a fraction of its
 % maximum admissible payload
-lambda  = 1;            % [-]       relative payload of the vehicle
+lambda = 1;            % [-]       relative payload of the vehicle
 % The tau_roll factor is to be modified in the range [0.25,0.75] and is
 % representative of the ratio of the roll stiffness of the front axle with
 % respect to the total roll stiffness of the vehicle (this parameter
