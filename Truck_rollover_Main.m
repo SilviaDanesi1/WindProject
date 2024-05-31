@@ -191,6 +191,7 @@ grid,xlabel('Time [s]'),ylabel('[ ]');
 title('Load on wheels ratio N/N_{static}')
 legend('FL','FR','RL','RR');
 subplot(234);
+figure('units', 'normalized', 'outerposition', [0 0 1 1]); % cambio
 plot(X,Y);
 grid on; xlabel('X [m]'),ylabel('Y [m]');
 hold on; plot(x_ref,y_ref,'r--'),legend('cog','Ref');xlim([0 max(X)]); grid on;
@@ -208,7 +209,7 @@ title('roll angle');hold on;
 figure('units', 'normalized', 'outerposition', [0 0 1 1]);
 plot(X,Y); title('vehicle trajectory and orientation')
 hold on;
-% for ii=1:t(end)
+% % for ii=1:t(end)
 %     Xg = interp1(t,X,ii);
 %     Yg = interp1(t,Y,ii);
 %     Psi = interp1(t,psi,ii);
